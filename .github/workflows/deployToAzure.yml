@@ -37,6 +37,13 @@ jobs:
           # Set this value to true to enable Azure PowerShell Login in addition to Azure CLI login
           enable-AzPSSession: true
 
+      - name: build the bicep file into ARM
+        uses: Azure/cli@v2.2.0
+        with:
+          # Specify the script here
+          inlineScript: az bicep build --file main.bicep --outputfile .main.json
+         
+
       - name: Create the ResourceGroup
         uses: Azure/powershell@v2
         with:
@@ -55,7 +62,7 @@ jobs:
         
           resourceGroupName: ${{ env.resourceGroupName }}
           # Specify the path or URL to the Azure Resource Manager template.
-          template: main.bicep
+          template: main.json
          # Supply deployment parameter values.
           parameters: storageAccountPrefix=ghaction
           deploymentName: "gh${{github.run_id}}"
