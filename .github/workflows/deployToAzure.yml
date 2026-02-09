@@ -37,11 +37,12 @@ jobs:
           # Set this value to true to enable Azure PowerShell Login in addition to Azure CLI login
           enable-AzPSSession: true
 
-      - name: build the bicep file into ARM
-        uses: Azure/cli@v2.2.0
+  
+      - name: build the template
+        uses: Azure/cli@v1
         with:
           # Specify the script here
-          inlineScript: az bicep build --file main.bicep --outputfile main.json
+          inlineScript: az bicep build --file main.bicep --outfile main.json
          
 
       - name: Create the ResourceGroup
