@@ -53,7 +53,7 @@ jobs:
           # Override the Subscription Id set by Azure Login.
          
         
-          resourceGroupName: GitHubExampleRG
+          resourceGroupName: ${{ env.resourceGroupName }}
           # Specify the path or URL to the Azure Resource Manager template.
           template: main.bicep
          # Supply deployment parameter values.
