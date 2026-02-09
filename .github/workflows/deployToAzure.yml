@@ -41,7 +41,7 @@ jobs:
         uses: Azure/cli@v2.2.0
         with:
           # Specify the script here
-          inlineScript: az bicep build --file main.bicep --outputfile .main.json
+          inlineScript: az bicep build --file main.bicep --outputfile main.json
          
 
       - name: Create the ResourceGroup
