@@ -37,7 +37,7 @@ jobs:
           # Set this value to true to enable Azure PowerShell Login in addition to Azure CLI login
           enable-AzPSSession: true
 
-      - name: Azure PowerShell Action
+      - name: Create the ResourceGroup
         uses: Azure/powershell@v2
         with:
           # Specify the Az PowerShell script here.
